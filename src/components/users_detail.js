@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class UserDetail extends Component{
+class UsersDetail extends Component{
 
   render(){
     return(
-      <div> User Detail </div>
+      <div> User Detail {this.props.params.id} </div>
     );
   }
 }
 
-export default UserDetail;
+export default UsersDetail;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class UserNew extends Component{
+class UsersNew extends Component{
   render(){
     return(
       <div>
@@ -12,4 +12,4 @@ class UserNew extends Component{
 
 }
 
-export default UserNew;
+export default UsersNew;
