@@ -12,7 +12,7 @@ class UsersIndex extends Component{
     return (
         <div>
           <div className="text-xs-right">
-            <Link className="btn btn-primary" to="/user/new">Create New User</Link>
+            <Link className="btn btn-primary" to="/users/new">Create New User</Link>
           </div>
           <div>
               Users : {this.props.users.length} <br />
