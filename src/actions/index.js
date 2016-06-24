@@ -9,17 +9,34 @@ const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=raditsimplereactcs';
 
 export function fetchUsers(){
-  const URLrequest = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+  const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
   return{
     type : FETCH_USERS,
-    payload : URLrequest
+    payload : request
   };
 }
 
 export function createUser(props){
-  const URLrequest = axios.post(`${ROOT_URL}/posts${API_KEY}`, props);
+  const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, props);
   return{
     type: CREATE_USER,
-    payload : URLrequest
+    payload : request
   };
+}
+
+export function fetchUserWithId(id){
+  const request =  axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
+  return{
+    type : FETCH_USER_WITH_ID,
+    payload: request
+  }
+}
+
+export function deleteUser(id){
+  const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`);
+  return{
+    type: DELETE_USER,
+    payload : request
+  }
+
 }

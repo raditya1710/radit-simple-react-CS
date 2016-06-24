@@ -8,6 +8,18 @@ class UsersIndex extends Component{
     this.props.fetchUsers();
   }
 
+
+  showUsers(){
+    return this.props.users.map((user)=>{
+      return (
+        <li className="list-group-item" key={user.id}>
+          <Link to={"users/" + user.id}>
+            <span className="pull-xs-right"> {user.firstName} {user.lastName} </span>
+          </Link>
+        </li>
+      );
+    });
+  }
   render(){
     return (
         <div>
@@ -17,7 +29,7 @@ class UsersIndex extends Component{
           <div>
               Users : {this.props.users.length} <br />
               <ul className="list-group">
-
+                  {this.showUsers()}
               </ul>
           </div>
         </div>
