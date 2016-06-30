@@ -1,15 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes} from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import { createUser } from '../actions/index';
+
 class UsersNew extends Component{
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  onSubmit(props){
+    this.props.createUser(props)
+      .then(() => {
+          this.context.router.push('/');
+      });
+  }
 
   render(){
     const {fields: {userName, firstName, lastName, email, address, description}, handleSubmit} = this.props;
     return(
       <div>
-        <h2> Create A New User </h2>
-        <form onSubmit={handleSubmit(this.props.createUser)}>
+
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <h2> Create A New User </h2>
           <div className="form-group">
             <label>Username</label>
             <input type="text" className="form-control" placeholder = "Enter your username" {...userName} />

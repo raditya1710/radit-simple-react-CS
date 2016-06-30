@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 import { fetchUserWithId, deleteUser} from '../actions/index';
 import { connect } from 'react-redux';
 class UsersDetail extends Component{
-  static contextTypes(){
-    router: PropTypes.object;
-  }
+  static contextTypes = {
+    router: PropTypes.object
+  };
 
   componentWillMount(){
     this.props.fetchUserWithId(this.props.params.id);
@@ -19,8 +19,10 @@ class UsersDetail extends Component{
   }
 
   render(){
-
     const {user} = this.props;
+    if(!user){
+      return <h3>"Loading..."</h3>
+    }
     return(
       <div> <h1>User Detail {this.props.params.id}</h1>
         <Link to="/" className="btn btn-primary">
