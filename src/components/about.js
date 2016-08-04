@@ -14,18 +14,19 @@ export default class About extends Component{
     return(
       <div style={divStyle}>
         <div className="text-xs-center">
-            <div className="text-info text-lg">
+          <Link className="btn btn-primary btn-sm" to="/home">Home</Link>
+          <Link className="btn btn-primary btn-sm" to="/photos">Photos</Link>
+          <Link className="btn btn-primary btn-sm" to="/users">Users</Link>
+        </div>
+        <div className="text-xs-center">
+            <div className="text-info">
                 Alfonsus Raditya Arsadjaja <br />
                 GDP Intern Summer 2016 <br/>
                 Copyright (c) 2016 <br />
             </div>
             <br/> <br/>
-
         </div>
-        <footer>
-          <Link className="btn btn-primary" to="/home">Home</Link>
-          <Link className="btn btn-primary" to="/users">Users</Link>
-        </footer>
+
       </div>
     );
   }
